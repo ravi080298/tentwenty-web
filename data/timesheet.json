@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "weekNumber": 1,
+    "dateRange": "1 - 5 January, 2024",
+    "status": "COMPLETED"
+  },
+  {
+    "id": "2",
+    "weekNumber": 2,
+    "dateRange": "8 - 12 January, 2024",
+    "status": "COMPLETED"
+  },
+  {
+    "id": "3",
+    "weekNumber": 3,
+    "dateRange": "15 - 19 January, 2024",
+    "status": "INCOMPLETE"
+  },
+  {
+    "id": "4",
+    "weekNumber": 4,
+    "dateRange": "22 - 26 January, 2024",
+    "status": "COMPLETED"
+  },
+  {
+    "id": "5",
+    "weekNumber": 5,
+    "dateRange": "28 January - 1 February, 2024",
+    "status": "MISSING"
+  }
+]
