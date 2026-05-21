@@ -22,6 +22,7 @@ async function getTimesheets(): Promise<TimesheetItem[]> {
       method: "GET",
       cache: "no-store", // Disables server caching to make sure updates from POST/PUT are instantly pulled
     });
+    console.log(res, "res", `${baseUrl}/api/timesheets`);
 
     if (!res.ok) {
       throw new Error("Failed to fetch timesheet matrix streams");
