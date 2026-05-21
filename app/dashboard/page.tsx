@@ -16,13 +16,11 @@ async function getTimesheets(): Promise<TimesheetItem[]> {
     : process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
       : "http://localhost:3000";
-  console.log(baseUrl, "baseURl");
   try {
     const res = await fetch(`${baseUrl}/api/timesheets`, {
       method: "GET",
       cache: "no-store", // Disables server caching to make sure updates from POST/PUT are instantly pulled
     });
-    console.log(res, "res", `${baseUrl}/api/timesheets`);
 
     if (!res.ok) {
       throw new Error("Failed to fetch timesheet matrix streams");
@@ -30,13 +28,11 @@ async function getTimesheets(): Promise<TimesheetItem[]> {
 
     return await res.json();
   } catch (error) {
-    console.log(error, "error");
     return []; // Graceful empty fallback array boundary error mapping
   }
 }
 
 export default async function DashboardPage() {
-  // 1. Authenticate user on the server side
   const session = await getServerSession(authOptions);
 
   // 2. Reject unauthenticated access

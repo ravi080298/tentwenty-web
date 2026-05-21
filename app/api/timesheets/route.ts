@@ -41,7 +41,6 @@ export async function PUT(request: Request) {
     // (In a persistent database architecture, you would execute an update query here)
     return NextResponse.json(body, { status: 200 });
   } catch (error) {
-    console.error("PUT API Route Exception Failure:", error);
     return NextResponse.json(
       { error: "Internal structural processing failed" },
       { status: 500 },
