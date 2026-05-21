@@ -8,32 +8,30 @@ import DashboardMainClient from "../../components/dashboard/dashbaordmainclient"
 import Footer from "@/components/footer";
 import { TimesheetItem } from "@/types/timesheet";
 import { TimesheetProvider } from "@/context/themesheetcontext";
+import { Mock_Response } from "@/data/timesheet";
 
 // Server-side fetch execution worker
-async function getTimesheets(): Promise<TimesheetItem[]> {
-  // absolute fallback URL handling for Next.js internal local server routing environments
-  const baseUrl = process.env.NEXTAUTH_URL
-    ? process.env.NEXTAUTH_URL
-    : process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000";
+// async function getTimesheets(): Promise<TimesheetItem[]> {
+//   const baseUrl = process.env.NEXTAUTH_URL
+//     ? process.env.NEXTAUTH_URL
+//     : process.env.VERCEL_URL
+//       ? `https://${process.env.VERCEL_URL}`
+//       : "http://localhost:3000";
+//   try {
+//     const res = await fetch(`${baseUrl}/api/timesheets`, {
+//       method: "GET",
+//       cache: "no-store", // Disables server caching to make sure updates from POST/PUT are instantly pulled
+//     });
 
-  try {
-    const res = await fetch(`${baseUrl}/api/timesheets`, {
-      method: "GET",
-      cache: "no-store", // Disables server caching to make sure updates from POST/PUT are instantly pulled
-    });
+//     if (!res.ok) {
+//       throw new Error("Failed to fetch timesheet matrix streams");
+//     }
 
-    if (!res.ok) {
-      throw new Error("Failed to fetch timesheet matrix streams");
-    }
-
-    return await res.json();
-  } catch (error) {
-    console.error("Dashboard Server Fetch Error:", error);
-    return []; // Graceful empty fallback array boundary error mapping
-  }
-}
+//     return await res.json();
+//   } catch (error) {
+//     return []; // Graceful empty fallback array boundary error mapping
+//   }
+// }
 
 export default async function DashboardPage() {
   // 1. Authenticate user on the server side
@@ -45,7 +43,7 @@ export default async function DashboardPage() {
   }
 
   // Await the GET API execution stream securely on the server side
-  const initialTimesheets = await getTimesheets();
+  const initialTimesheets = Mock_Response;
 
   // 3. Render secure modular container viewports layout
   return (
