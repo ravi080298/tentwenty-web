@@ -8,30 +8,15 @@ import DashboardMainClient from "../../components/dashboard/dashbaordmainclient"
 import Footer from "@/components/footer";
 import { TimesheetItem } from "@/types/timesheet";
 import { TimesheetProvider } from "@/context/themesheetcontext";
-import fs from "fs";
-import path from "path";
-
-// Server-side fetch execution worker
-// async function getTimesheets(): Promise<TimesheetItem[]> {
-//   try {
-//     // Locate your json file at the project root level directory path safely
-//     const filePath = path.join(process.cwd(), "data", "timesheet.json");
-
-//     // Read the database contents synchronously from memory cache storage channels
-//     const jsonData = fs.readFileSync(filePath, "utf-8");
-
-//     // Parse the raw text matrix stream into clean TypeScript objects
-//     return JSON.parse(jsonData) as TimesheetItem[];
-//   } catch (error) {
-//     console.error("Dashboard Server Direct File System Read Error:", error);
-//     return []; // Fallback gracefully to an empty array so layout doesn't completely collapse
-//   }
-// }
 
 // Server-side fetch execution worker
 async function getTimesheets(): Promise<TimesheetItem[]> {
   // absolute fallback URL handling for Next.js internal local server routing environments
-  const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
+  const baseUrl = process.env.NEXTAUTH_URL
+    ? process.env.NEXTAUTH_URL
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000";
 
   try {
     const res = await fetch(`${baseUrl}/api/timesheets`, {
