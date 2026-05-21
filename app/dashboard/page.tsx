@@ -30,6 +30,7 @@ async function getTimesheets(): Promise<TimesheetItem[]> {
 
     return await res.json();
   } catch (error) {
+    console.log(error, "error");
     return []; // Graceful empty fallback array boundary error mapping
   }
 }
