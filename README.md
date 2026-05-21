@@ -18,3 +18,24 @@ login by email "admin@example.com"
 password: password123
 
 we can create, edit timesheet.
+
+## Local Development Setup Instructions
+
+Follow these steps to configure the project environment and run it locally on your computer.
+
+### 1. Prerequisites
+
+Ensure you have **Node.js (v18 or higher)** and **npm** installed on your system.
+
+### 2. Clone and Install Dependencies
+
+```bash
+# Clone the repository
+git clone <repository-url>
+
+# Navigate into the project directory
+cd <project-folder-name>
+
+# Install required node packages
+npm install
+```
