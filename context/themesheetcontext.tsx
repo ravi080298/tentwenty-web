@@ -49,7 +49,6 @@ export function TimesheetProvider({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedItem),
       });
-      console.log(res);
       if (!res.ok) throw new Error("Failed to update entry");
 
       setTimesheets((prev) =>

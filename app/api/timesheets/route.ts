@@ -1,10 +1,10 @@
 // 1. GET API Endpoint Handler
 import { NextResponse } from "next/server";
-import mockTimesheets from "../../../data/timesheet.json";
+import { Mock_Response } from "../../../data/timesheet";
 
 export async function GET() {
   // Return the mock database array instantly with a successful 200 header response
-  return NextResponse.json(mockTimesheets, { status: 200 });
+  return NextResponse.json(Mock_Response, { status: 200 });
 }
 
 // 2. POST API Endpoint Handler
